@@ -1,0 +1,5 @@
+1. cd ../..
+2. ./challenge/babysuid_level15
+3. command ./usr/bin/base64 is now available | base64, intuitively, prints file contents out in base 64
+4. with intuition we can know that this will output in the same way as base64 so we can pipe the info to temp ./usr/bin/base64 flag > ./home/hacker/temp
+5. and capture the flag with ./usr/bin/base64 -d ./home/hacker/temp to get the flag
