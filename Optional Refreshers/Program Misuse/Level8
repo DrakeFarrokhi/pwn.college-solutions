@@ -1,0 +1,3 @@
+1. cd ../..
+2. ./challenge/babysuid_level8
+3. command ./usr/bin/emacs is now available | emcas is similar to vim in the sense that it's a terminal text editor we can capture the flag with ./usr/bin/emacs flag
