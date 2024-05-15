@@ -1,0 +1,4 @@
+1. cd ../..
+2. ./challenge/babysuid_level18
+3. ./usr/bin/bzip2 is made available | bzip is another encryption function however there is no man page so we will have to follow our intuition and assume encryption functions work similarly
+4. we run ./usr/bin/bzip2 flag > ./home/hacker/temp to encrypt the flag and store it in our temporary file can finally capture it similarly to problem 17 by running ./usr/bin/bzip2 -d -c ./home/hacker/temp
