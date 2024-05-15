@@ -1,0 +1,5 @@
+1. cd ../..
+2. ./challenge/babysuid_level11
+3. command ./usr/bin/hd is now allowed | this command outputs in a very odd format but we can do what we did in level 11 to get a nice format
+4. run ./usr/bin/hd flag > ./home/hacker/temp to save the output
+5. ./usr/bin/nano ./home/hacker/temp to remove the junk and capture the flag finally with cat ./home/hacker/temp
