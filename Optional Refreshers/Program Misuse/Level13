@@ -1,0 +1,5 @@
+1. cd ../..
+2. ./challenge/babysuid_level13
+3. command ./usr/bin/xxd is now avaialbe | run .usr/bin/xxd flag and see the output is funky similar in format to ./usr/bin/hd
+4. we can fix this by running ./usr/bin/xxd flag > ./home/hacker/temp and then ./usr/bin/nano ./home/hacker/temp to edit the file
+5. run cat ./home/hacker/temp to get the flag
