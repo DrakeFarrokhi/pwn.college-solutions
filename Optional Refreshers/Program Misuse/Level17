@@ -1,0 +1,4 @@
+1. cd ../..
+2. ./challenge/babysuid_level17
+3. comamnd ./usr/bin/gzip is now available | ./usr/bin/gzip function zips file contents we can encrypt the flag and then decrpyt it while printing the contents to get the flag
+4. we do this by ./usr/bin/gzip flag to get flag.gz now we can run ./usr/bin/gzip -d (decrypt) -c (stdout) flag.gz to capture the flag
