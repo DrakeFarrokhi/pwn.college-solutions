@@ -1,0 +1,5 @@
+1. cd ../..
+2. .challenge/babysuid_level10
+3. command ./usr/bin/rev is now available | this command reverses the contents of a file so we can get the flag by reversing the output
+4. to make your life easier you can run the command ./usr/bin/rev flag > ./home/hacker/temp to save the function output to the file named temp in our persistent desktop
+5. now you can capture the flag (in a nice format) via ./usr/bin/rev ./home/hacker/temp
