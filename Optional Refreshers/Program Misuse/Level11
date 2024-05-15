@@ -1,0 +1,6 @@
+1. cd ../..
+2. ./challenge/babysuid_level11
+3. command ./usr/bin/od command is now available | od command results in dumps file contents in octal form or others via flags, capture the flag with ./usr/bin/od -c (prints file contents in form of ascii chars) flag
+4. the format isn't the greatest but easily adjustable in a text editor by doing ./usr/bin/od -c flag > ./home/hacker/temp
+5. we now have the output saved in our temporary file so we can edit it with ./usr/bin/nano flag to manually remove the junk
+6. get the flag in nice format by running cat ./home/hacker/temp
