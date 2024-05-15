@@ -1,0 +1,4 @@
+1. cd ../..
+2. ./challenge/babysuid_level16
+3. command ./usr/bin/split is now available | not quite sure what this function does however after looking at the man split we see a --verbose tag to help debug what might be happening
+4. split now outputs that the file xaa was created and we caputre the flag with cat xaa
