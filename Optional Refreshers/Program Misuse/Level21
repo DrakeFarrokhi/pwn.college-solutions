@@ -1,0 +1,4 @@
+1. cd ../..
+2. ./challenge/babysuid_level21
+3. we now have access to the ./usr/bin/ar command which is yet another compression function | we can compress the flag with ./usr/bin/ar -rcs (r -> add files, c -> create the file if not already made, s -> write an index)
+4. we can now access the flag with cat archive.a
