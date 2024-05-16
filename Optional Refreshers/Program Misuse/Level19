@@ -1,0 +1,4 @@
+1. cd ../..
+2. ./challenge/babysuid_level19
+3. from here we get access to the notorious zip command and can zip files | we can zip the flag file into a new file called newzip.zip via the command ./usr/bin/zip newzip.zip flag
+4. from here we can get direct access to the flag with cat newzip.zip
