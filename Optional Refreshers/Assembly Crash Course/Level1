@@ -1,0 +1,17 @@
+1. we begin by starting the challenge by running ./../../challenge/run and exiting after receving the instructiosn via a keyboard interput ctrl + c
+2. we can now open up a text editor to write our assembly code to the complete the challenge with touch asm.S and can open the file with nano asm.S
+3. from here we can start writing our assembly code and the first thing we want to do is set intel_syntax noprefix, specify where the assembler should start, and create a section for it
+Code:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  mov rdi, 0x1337 # set our rdi register to 0x1337
+  mov rax, 60 # setting rax register to 60 for syscall exit
+  syscall # exits the program
+
+4. we can now save the file with ctrl + S and exit with ctrl + X from here we can create an object file of our source code with as -o asm.o asm.S
+5. now we object copy the assembled code to binary for our challenge with objcopy -O binary --only-section=.text asm.o asm.bin
+6. and to capture the flag we pipe the binary into the challenge with cat ./asm.bin | ./../../challenge/run and receive the flag
