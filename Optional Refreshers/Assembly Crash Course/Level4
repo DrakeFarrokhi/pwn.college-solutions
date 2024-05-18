@@ -1,0 +1,14 @@
+1. start the challenge by running ./../../challenge/run
+2. our goal in this challenge is to store the value m*x + b into the rax register s.t. m is rdi, x is rsi and b is rdx so we can begin the problem with touch asm.S and nano asm.S to start coding
+file, name=asm.S:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  imul rdi, rsi
+  add rdi, rdx
+  mov rax, rdi
+3. we can now compile the file and convert it to binary with the commands as -o asm.o asm.S and objcopy -O binary --only-section=.text asm.o asm.bin
+4. we can now pipe the binary into the challenge/run via cat asm.bin | ./../../challenge/run and get the flag!
