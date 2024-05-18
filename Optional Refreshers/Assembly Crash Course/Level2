@@ -1,0 +1,15 @@
+1. we begin the challenge by running the start file via ./../../challenge/run
+2. from here we can see that we need to set the rax register to 0x1337, r12 to 0xCAFED00D1337BEEF and rsp to 0x31337 
+file, name=asm.S:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  mov rax, 0x1337
+  mov r12, 0xCAFED00D1337BEEF
+  mov rsp, 0x31337
+
+-oddly enough we don't need to make a syscall for our file to exit here so we can no compile the program with as -o asm.o asm.S and convert it to binary with objcopy -O binary --only_section=.text asm.o asm.bin
+3. we can capture the flag by piping the binary to our challenge file with cat ./asm.bin | ./../../challenge/run
