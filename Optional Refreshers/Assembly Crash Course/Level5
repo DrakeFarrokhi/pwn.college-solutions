@@ -1,0 +1,12 @@
+1. start the challenge with ./../../challenge/run - in this challenge we are doing a dividor operation (rdi / rsi -> rax)
+2. start the challenge by creating our file and editing with a text editor with touch asm.S and nano asm.S
+file, name=asm.S:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  mov rax, rdi; div rsi
+3. compile and convert our assembly code to binary with as -o asm.o asm.S and objcopy -O binary --only-section=.text asm.o asm.bin
+4. pipe the binary to the challenge/run file and capture the flag with cat asm.bin | ./../../challenge/run
