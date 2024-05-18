@@ -1,0 +1,14 @@
+1. begin the challenge with ./../../challenge/run - in this challenge we will be adding a value (0x331337 to rdi)
+2. let's begin by making our file with touch ./asm.S and nano asm.S to start coding
+file, name=asm.S:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  add rdi, 0x331337
+  mov rax, 60
+  syscall
+3. now compile our file with as -o asm.o asm.S and convert it to binary with objcopy -O binary --only_section=.text asm.o asm.bin
+4. and capture the flag by piping in the binary with cat ./asm.bin | ./../../challenge/run
