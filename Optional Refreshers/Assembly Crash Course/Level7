@@ -1,0 +1,12 @@
+1. start the challenge with ./../../challenge/run - they want us to set the 8 upper bits of the ax register to 0x42
+2. we begin by creating our file and accessing with a text editor with touch asm.S and nano asm.S
+file, name=asm.S:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  mov ah, 0x42 # ah is the 8 higher order bits of the ax register and al is the 8 lower bits
+3. we now compile and convert our file to binary with as -o asm.o asm.S and objcopy -O binary --only-section=.text asm.o asm.bin
+4. and pipe the binary to the challenge to get the flag with cat asm.bin | ./../../challenge/run
