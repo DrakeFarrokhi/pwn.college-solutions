@@ -1,0 +1,13 @@
+1. begin the challenge with ./../../challenge/run - in this challenge we will be doing the modulus operator! We want to store the output of rdi % rsi into rax to complete the challenge
+2. start by entering our file with touch asm.S and nano asm.S
+file, name=asm.S:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  mov rax, rdi; div rsi
+  mov rax, rdx # remainder of division operations is stored in rdx
+3. we can now compile and convert our file to binary with as -o asm.o asm.S and then objcopy -O binary --only-section=.text asm.o asm.bin
+4. and pipe our binary into the challenge to capture the flag with cat asm.bin | ./../../challenge/run
