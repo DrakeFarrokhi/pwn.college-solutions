@@ -1,0 +1,15 @@
+1. Begin the challenge by running ./../../challenge/run - in this challenge we are tasked with incrementing the value stored at [0x404000] by 0x1337 and storing the original value into rax and the incremented value
+into [0x404000]
+2. We start by creating our file and editing it with touch asm.s and nano asm.s
+file, name=asm.s:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  mov rax, [0x404000]
+  add rax, 0x1337
+  xchg rax, [0x404000]
+3. We now need to get the binary by compiling and converting into binary with as -o asm.o asm.s and objcopy -O binary --only-section=.text
+4. Capture the flag by piping the binary into the challenge with cat asm.bin | ./../../challenge/run
