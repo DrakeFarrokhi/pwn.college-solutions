@@ -1,0 +1,14 @@
+1. start the challenge with ./../../challenge/run - in this challenge we are tasked with grabbing the 5th least significant byte of rdi and storing it in rax with only shl, shr, and mov
+2. let's make our text file and start editing with touch asm.s and nano asm.s
+file, name=asm.s:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  shl rdi, 24 # get rid of the 3 higher order bytes (8 * 3 = 24)
+  shr rdi, 56 # shift the highest byte back to the lowest byte
+  mov rax, rdi
+3. let's now compile and translate the file into binary with as -o asm.o asm.s and objcopy -O binary --only-section=.text asm.o asm.bin
+4. now we can capture the flag by piping the binary into our challenge with cat asm.bin | ./../../challenge/run
