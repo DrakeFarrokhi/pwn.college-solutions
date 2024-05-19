@@ -1,0 +1,12 @@
+1. Start the challenge by running ./../../challenge/run - in this challenge we are tasked with storing the value at memory address [0x404000] into rax
+2. Let's begin by making a file and opening it in a text editor with touch asm.s and nano asm.s
+file, name=asm.s:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  mov rax, [0x404000]
+3. Now all we have to do is compile our code and convert it to binary with as -o asm.o asm.s and objcopy -O binary --only-section=.text asm.o asm.bin
+4. Capture the flag by piping the binary into the challenge with cat asm.bin | ./../../challenge/run
