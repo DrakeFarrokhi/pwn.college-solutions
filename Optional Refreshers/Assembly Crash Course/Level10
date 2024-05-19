@@ -1,0 +1,13 @@
+1. begin the challenge with ./../../challenge/run - we are tasked with computing the bitwise and between the rdi and rsi register and storing the output into rax without using the move command
+2. let's begin by making our file and opening it in a text editor with touch asm.s and nano asm.s
+file, name=asm.s:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  and rdi, rsi # computes the bitwise and of rdi and rsi and stores the output into rdi
+  and rax, rdi # rax is initially set to 64 1's so we can move the value stored in rdi simply by and-ing rax and rdi
+3. let's now compile our file and convert it to binary with as -o asm.o asm.s and objcopy -O binary --only-section=.text asm.o asm.bin
+4. and pipe the binary into the challenge to capture the flag with cat asm.bin | ./../../challenge/run
