@@ -1,0 +1,12 @@
+1. Start the challenge with ./../../challenge/run - in this challenge we are tasked with setting rax to the lower byte of the value stored at 0x40400
+2. Begin by creating our file and editing it with touch asm.s and nano asm.s
+file, name=asm.s:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  mov al, [0x40400] # lower byte register of rax will not overflow into the rest of rax so we only get the lower byte of 0x40400
+3. Now compile and convert the file into binary with as -o asm.o asm.s and objcopy -O binary --only-section=.text asm.o asm.bin
+4. And pipe the binary into the challenge to get the flag with cat asm.bin | ./../../challenge/run
