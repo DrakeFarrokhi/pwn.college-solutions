@@ -1,0 +1,14 @@
+1. start the challenge with ./../../challenge/run - we can see that our task this time is to find the division remainder after dividing by powers of two which can be translated to x % 2^n -> n first bits of x
+- they want us to move numbers dynamically provided in rdi and rsi into rax and rbx respectively which we do by accessing particular parts of the register
+2. to start let's create our file with touch asm.s and then nano asm.s to open the text editor
+file, name=asm.s:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  mov al, dil 
+  mov bx, si
+3. we can now compile and convert our compilied file to binary with as -o asm.o asm.s and objcopy -O binary --only-section=.text asm.o asm.bin
+4. and we can capture the flag by piping the binary with cat asm.bin | ./../../challenge/run
