@@ -1,0 +1,14 @@
+1. Start the challeenge with ./../../challenge/run - in this challenge we are tasked with storing a 1 in rax if rdi is even and a 0 if rdi is odd
+2. Let's begin by making a file and opening it in a text editor with touch asm.s and nano asm.s
+file, name=asm.s:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  and rax, 1 # rax is initially 64 ones so here we set it to 00000...001
+  and rdi, 1 # this figures out if rdi is odd or even, all odd numbers have a 1 as the first bit and odds have a 0
+  xor rax, rdi # we can set rax to 0 if rdi was odd as xor 1, 1 -> and 1 if it was even
+3. Now we just have to compile our file and convert it to binary with as -o asm.o asm.s and objcopy -O binary --only-section=.text asm.o asm.bin
+4. and pipe our binary into the challenge to capture the flag with cat asm.bin | ./../../challenge/run
