@@ -1,0 +1,11 @@
+1. Start the challenge by running ./../../challenge/run - in this challenge we are tasked with setting the value of rax into the memory address 0x404000
+2. Begin by creating our file and editing it with touch asm.s and nano asm.s
+file, name=asm.s:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+_start:
+  mov [0x404000], rax
+3. Now compile and convert the code to binary with as -o asm.o asm.s and objcopy -O binary --only-section=.text asm.o asm.bin
+4. and pipe the binary into the challenge with cat asm.bin | ./../../challenge/run
