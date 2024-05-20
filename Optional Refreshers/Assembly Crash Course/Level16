@@ -1,0 +1,16 @@
+1. Start the challenge with ./../../challenge/run - in this task we are tasked with setting rax to the byte at 0x404000, rbx to the word (2 bytes) at 0x404000, rcx to the double word (4 bytes) at 0x40400, and
+rdx to the quad word (8 bytes) at 0x404000
+2. Begin by creating a file and editing it with touch asm.s and nano asm.s
+file, name=asm.s:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start: 
+  mov al, [0x404000] # first byte of rax
+  mov bx, [0x404000] # first two bytes of rbx
+  mov ecx, [0x404000] # first 4 bytes of rcx
+  mov rdx, [0x404000] 
+3. We can now get our binary with as -o asm.o asm.s and objcopy -O binary --only-section=.text asm.o asm.bin
+4. and capture the flag by piping the binary with cat asm.bin | ./../../challenge/run
