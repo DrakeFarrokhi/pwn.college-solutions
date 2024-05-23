@@ -1,0 +1,15 @@
+1. Start the challenge with ./../../challenge/run - in this challenge we are tasked with adding two consecutive quad words stored at rdi and save the value in rsi
+2. Make our file with touch asm.s and nano asm.s
+file, name=asm.s:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  mov rax, [rdi]
+  mov r12, [rdi + 8]
+  add rsi, rax
+  add rsi, r12
+3. Now compile the code and convert to binary with as -o asm.o asm.s and objcopy -O binary --only-section=.text asm.o asm.bin
+4. Capture the flag by piping the binary with cat asm.bin | ./../../challenge/run
