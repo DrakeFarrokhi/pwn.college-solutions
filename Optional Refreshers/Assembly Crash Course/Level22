@@ -1,0 +1,13 @@
+1. Start the challenge with ./../../challenge/run - in this challenge we are tasked with making rsi perform an absolute jump to the location 0x4030000
+2. Create and edit a file with touch asm.s and nano asm.s
+file, name=asm.s:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  mov rax, 0x403000
+  jmp rax1
+3. Compile and translate the code to binary with as -o asm.o asm.s & objcopy -O binary --only-section=.text asm.o asm.bin
+4. Capture the flag by piping the binary with cat asm.bin | ./../../challenge/run
