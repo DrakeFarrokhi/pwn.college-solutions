@@ -1,0 +1,14 @@
+1. Start the challenge with ./../../challenge - we are now tasked with popping a value from the stack, subtracting the value in rdi from it, and then pushing it back onto the stack
+2. Create and edit file with touch asm.s and nano asm.s
+file, name=asm.s:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  pop rax
+  sub rax, rdi
+  push rax
+3. Compile and translate the code to binary with as -o asm.o asm.s & objcopy -O binary --only-section=.text asm.o asm.bin
+4. Capture the flag by piping the binary with cat asm.bin | ./../../challenge/run
