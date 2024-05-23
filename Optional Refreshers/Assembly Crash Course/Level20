@@ -1,0 +1,15 @@
+1. Start the challenge with ./../../challenge/run - in this task we are challenged with swapping the values of rdi and rsi via the stack
+2. Create and edit our file with touch asm.s and nano asm.s
+file, name=asm.s:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  push rdi
+  push rsi
+  pop rdi
+  pop rsi
+3. Compile and convert the code to binary with as -o asm.o asm.s & objcopy -O binary --only-section=.text asm.o asm.bin
+4. Capture the flag by piping the binary with cat asm.bin | ./../../challenge/run
