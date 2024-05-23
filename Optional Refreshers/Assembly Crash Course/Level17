@@ -1,0 +1,15 @@
+1. Start the challenge with ./../../challenge/run - in this challenge we are tasked with setting the values at the reference rdi and rsi registers to 0xdeadbeef00001337 and 0xc0ffee0000 respectively
+2. Start by editing a file with touch asm.s & nano asm.s
+file, name=asm.s:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  mov rax, 0xdeadbeef00001337
+  mov rbx, 0xc0ffee0000
+  mov [rdi], rax
+  mov [rsi], rbx
+3. Then compile and conver to code to binary with as -o asm.o asm.s & objcopy -O binary --only-section=.text asm.o asm.bin
+4. and capture the flag by piping the binary with cat asm.bin | ./../../challenge/run
