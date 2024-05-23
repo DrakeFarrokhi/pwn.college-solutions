@@ -1,0 +1,18 @@
+1. Start the challenge with ./../../challenge/run - in this challenge we are tasked with averaging the top 4 quadword values that are stored on the stack without using pop and pushing that value onto the stack
+2. Create and edit our file with touch asm.s & nano asm.s
+file, name=asm.s:
+.intel_syntax noprefix
+.section .text
+.global _start
+
+.text
+_start:
+  add r12, [rsp]
+  add r12, [rsp + 8]
+  add r12, [rsp + 16]
+  add r12, [rsp + 24]
+  mov rsi, 4
+  mov rax, r12; div rsi
+  push rax
+3. Compile and convert our code to binary with as -o asm.o asm.s & objcopy -O binary --only-section=.text asm.o asm.bin
+4. Capture the flag by piping the binary with cat asm.bin | ./../../challenge/run
